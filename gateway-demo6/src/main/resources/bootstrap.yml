@@ -1,0 +1,32 @@
+server:
+  port: 7500
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: gateway-example
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          lowerCaseServiceId: true
+          ## 开启从注册中心动态创建路由的功能，利用服务名进行路由，默认false
+          enabled: true
+    nacos:
+      username: nacos
+      password: nacos
+      config:
+        server-addr: 10.1.1.1:8848
+#        file-extension: json
+        group: DEFAULT_GROUP
+        namespace: example
+
+# 自定义的配置项，用于设置路由信息所载的配置文件，比如这里是 group + dataId
+gateway:
+  dynamic:
+    route:
+      enabled: true
+      data-id: gateway-router.json

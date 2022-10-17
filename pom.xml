@@ -10,10 +10,11 @@
     <version>1.0</version>
     <modules>
         <!--<module>gateway-demo1</module>-->
-        <module>gateway-demo2</module>
+        <!--<module>gateway-demo2</module>-->
        <!-- <module>gateway-demo3</module>-->
         <!--<module>gateway-demo4</module>-->
-        <module>gateway-demo5</module>
+       <!-- <module>gateway-demo5</module>-->
+        <module>gateway-demo6</module>
     </modules>
 
     <properties>
