@@ -54,9 +54,7 @@ public class GatewayRouterHandler implements ApplicationEventPublisherAware, Com
     }
 
     public void loadRouteConfig() {
-        List<GatewayRouterEntity> routerList = gatewayRouterService.list();
-
-        routerList.forEach(routerEntity -> {
+        gatewayRouterService.list().forEach(routerEntity -> {
             this.addRoute(this.getRouteDefinition(routerEntity));
         });
 
