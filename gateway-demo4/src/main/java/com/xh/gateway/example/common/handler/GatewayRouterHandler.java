@@ -24,6 +24,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
+ * 网关路由器处理程序
+ *
  * @author H.Yang
  * @date 2022/10/14
  */
@@ -47,16 +49,20 @@ public class GatewayRouterHandler implements ApplicationEventPublisherAware, Com
         this.applicationEventPublisher = applicationEventPublisher;
     }
 
-
+    /**
+     * 启动时执行
+     * <p>
+     * 实现 CommandLineRunner 接口
+     *
+     * @param args
+     */
     @Override
     public void run(String... args) throws Exception {
         this.loadRouteConfig();
     }
 
-    private void loadRouteConfig() {
-        List<GatewayRouterEntity> routerList = gatewayRouterService.list();
-
-        routerList.forEach(routerEntity -> {
+    public void loadRouteConfig() {
+        gatewayRouterService.list().forEach(routerEntity -> {
             this.addRoute(this.getRouteDefinition(routerEntity));
         });
 

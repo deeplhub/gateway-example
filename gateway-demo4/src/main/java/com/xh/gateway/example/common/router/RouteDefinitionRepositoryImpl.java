@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 /**
- * 将定义好的路由表信息通过此类读写到redis中
+ * 将定义好的路由表信息通过此类读写到内存中
  *
  * @author H.Yang
  * @date 2022/10/14

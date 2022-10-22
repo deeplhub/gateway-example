@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 动态路由
+ * 网关路由器处理程序
  *
  * @author H.Yang
  * @date 2022/10/14
@@ -47,6 +47,8 @@ public class DynamicRouteService implements ApplicationEventPublisherAware, Comm
 
     /**
      * 启动时执行
+     * <p>
+     * 实现 CommandLineRunner 接口
      *
      * @param args
      */
@@ -80,7 +82,12 @@ public class DynamicRouteService implements ApplicationEventPublisherAware, Comm
         return definition;
     }
 
-
+    /**
+     * 谓词定义
+     *
+     * @param routePattern
+     * @return
+     */
     private PredicateDefinition getPredicateDefinition(String routePattern) {
         Map<String, String> predicateParams = new HashMap<>(8);
         predicateParams.put("pattern", routePattern);

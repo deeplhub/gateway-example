@@ -12,6 +12,7 @@ import org.springframework.core.env.ConfigurableEnvironment;
  * @date 2021/5/30
  */
 @Slf4j
+@EnableDiscoveryClient
 @SpringBootApplication
 public class GateWayApplication {
 

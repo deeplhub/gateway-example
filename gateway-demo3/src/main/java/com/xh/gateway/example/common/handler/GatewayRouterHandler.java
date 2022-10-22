@@ -21,6 +21,8 @@ import java.net.URI;
 import java.util.*;
 
 /**
+ * 网关路由器处理程序
+ *
  * @author H.Yang
  * @date 2022/10/14
  */
@@ -44,6 +46,13 @@ public class GatewayRouterHandler implements ApplicationEventPublisherAware, Com
     }
 
 
+    /**
+     * 启动时执行
+     * <p>
+     * 实现 CommandLineRunner 接口
+     *
+     * @param args
+     */
     @Override
     public void run(String... args) throws Exception {
         this.loadRouteConfig();
@@ -78,6 +87,12 @@ public class GatewayRouterHandler implements ApplicationEventPublisherAware, Com
         return definition;
     }
 
+    /**
+     * 谓词定义
+     *
+     * @param routerId
+     * @return
+     */
     private List<PredicateDefinition> getPredicateDefinition(String routerId) {
         List<GatewayRouterItemEntity> routerItemList = gatewayRouterItemService.listByRouterId(routerId);
 
